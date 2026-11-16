@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — ByteShop</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">
+        <span class="site-header__logo-icon" aria-hidden="true">B</span>
+        ByteShop
+      </a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="order.html">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="about.html">О нас</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button class="icon-button site-header__cart" type="button" aria-label="Корзина">
+          <span class="icon-button__icon" aria-hidden="true">🛒</span>
+          <span class="site-header__cart-count" data-cart-count>0</span>
+        </button>
+        <a class="button button--ghost" href="order.html">Войти</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Контакты</span>
+    </nav>
+
+    <section class="page-head">
+      <h1>Контакты</h1>
+      <p>Свяжитесь с нами удобным способом или оставьте заявку через форму.</p>
+    </section>
+
+    <section class="contacts-grid" aria-label="Контактная информация">
+      <article class="contact-card">
+        <h2 class="contact-card__title">Телефон</h2>
+        <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+        <p class="contact-card__note">Ежедневно 10:00–20:00</p>
+      </article>
+
+      <article class="contact-card">
+        <h2 class="contact-card__title">E-mail</h2>
+        <p><a href="mailto:support@byteshop.ru">support@byteshop.ru</a></p>
+        <p class="contact-card__note">Отвечаем в течение часа</p>
+      </article>
+
+      <article class="contact-card">
+        <h2 class="contact-card__title">Адрес</h2>
+        <p>Москва, Волгоградский проспект, 24</p>
+        <p class="contact-card__note">Шоурум и пункт выдачи</p>
+      </article>
+
+      <article class="contact-card">
+        <h2 class="contact-card__title">Соцсети</h2>
+        <p>
+          <a href="#">Telegram</a> ·
+          <a href="#">VK</a> ·
+          <a href="#">YouTube</a>
+        </p>
+        <p class="contact-card__note">Новости, акции и обзоры</p>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="map-title">
+      <h2 class="section__title" id="map-title">Карта</h2>
+
+      <div class="contacts-map">
+        <iframe
+          class="contacts-map__iframe"
+          src="https://yandex.ru/map-widget/v1/?text=Москва%2C%20Волгоградский%20проспект%2C%2024&z=15"
+          title="Карта расположения магазина ByteShop"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="feedback-title">
+      <h2 class="section__title" id="feedback-title">Обратная связь</h2>
+
+      <form class="order-form order-form--page" id="order-form">
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя</label>
+          <input
+            class="order-form__input"
+            id="order-name"
+            name="name"
+            type="text"
+            minlength="2"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-email">E-mail</label>
+          <input
+            class="order-form__input"
+            id="order-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-phone">Телефон</label>
+          <input
+            class="order-form__input"
+            id="order-phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            required
+          >
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-topic">Тема заявки</label>
+          <select class="order-form__select" id="order-topic" name="topic" required>
+            <option value="" selected disabled>Выберите тему</option>
+            <option value="order">Заказ товара</option>
+            <option value="build">Сборка ПК</option>
+            <option value="consultation">Консультация</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-comment">Комментарий</label>
+          <textarea
+            class="order-form__textarea"
+            id="order-comment"
+            name="comment"
+            rows="5"
+          ></textarea>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label order-form__label--checkbox" for="order-consent">
+            <input
+              class="order-form__checkbox"
+              id="order-consent"
+              name="consent"
+              type="checkbox"
+              required
+            >
+            Я согласен на обработку данных
+          </label>
+        </div>
+
+        <button class="button button--primary" type="submit">Отправить заявку</button>
+      </form>
+
+      <p class="success-message" id="success-message" role="status" hidden>
+        Заявка отправлена! Мы свяжемся с вами в ближайшее время.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="index.html">
+          <span class="site-footer__logo-icon" aria-hidden="true">B</span>
+          ByteShop
+        </a>
+        <p class="site-footer__description">
+          Магазин ПК-комплектующих и готовых сборок.
+          Техника для игр, работы и творчества.
+        </p>
+        <div class="site-footer__social">
+          <a href="#" aria-label="Telegram">Telegram</a>
+          <a href="#" aria-label="VK">VK</a>
+          <a href="#" aria-label="YouTube">YouTube</a>
+        </div>
+      </div>
+
+      <nav class="site-footer__column" aria-label="Навигация">
+        <p class="site-footer__title">Навигация</p>
+        <ul class="site-footer__list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="order.html">Заявка</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__column" aria-label="Каталог">
+        <p class="site-footer__title">Каталог</p>
+        <ul class="site-footer__list">
+          <li><a href="catalog.html">Видеокарты</a></li>
+          <li><a href="catalog.html">Процессоры</a></li>
+          <li><a href="catalog.html">Материнские платы</a></li>
+          <li><a href="catalog.html">Память и SSD</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer__column">
+        <p class="site-footer__title">Контакты</p>
+        <address class="site-footer__contacts">
+          <p>Москва, Волгоградский проспект, 24</p>
+          <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+          <p>Ежедневно 10:00–20:00</p>
+          <p><a href="mailto:support@byteshop.ru">support@byteshop.ru</a></p>
+        </address>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© 2026 ByteShop. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <a class="to-top" href="#top" aria-label="Наверх">
+    <span class="to-top__icon" aria-hidden="true">↑</span>
+  </a>
+</body>
+</html>

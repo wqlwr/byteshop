@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByteShop — ПК комплектующие и готовые сборки</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">
+        <span class="site-header__logo-icon" aria-hidden="true">B</span>
+        ByteShop
+      </a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="order.html">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="about.html">О нас</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button class="icon-button site-header__cart" type="button" aria-label="Корзина">
+          <span class="icon-button__icon" aria-hidden="true">🛒</span>
+          <span class="site-header__cart-count" data-cart-count>0</span>
+        </button>
+        <a class="button button--ghost" href="order.html">Войти</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <!-- Герой -->
+    <section class="hero">
+      <div class="hero__content">
+        <p class="hero__badge">Видеокарты RTX 50-серии уже в наличии!</p>
+        <h1 class="hero__title">Собери ПК по выгодной цене</h1>
+        <p class="hero__text">
+          Комплектующие, готовые сборки и периферия для гейминга, работы и творчества.
+          Только проверенные бренды, честные характеристики и быстрая доставка.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="catalog.html">Перейти в каталог</a>
+          <a class="button button--secondary" href="order.html">Готовые сборки</a>
+        </div>
+      </div>
+
+      <div class="hero__showcase">
+        <figure class="gpu-figure" role="img" aria-label="Стилизованная видеокарта с двумя вращающимися кулерами и золотыми контактами PCIe">
+          <svg class="gpu-figure__svg" viewBox="0 0 520 306" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+            <defs>
+              <linearGradient id="gpuBody" x1="0" y1="0" x2="0.35" y2="1">
+                <stop offset="0" stop-color="#2b3141"/>
+                <stop offset="0.45" stop-color="#161a24"/>
+                <stop offset="1" stop-color="#0a0c12"/>
+              </linearGradient>
+
+              <linearGradient id="gpuMetal" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e8edf7"/>
+                <stop offset="0.35" stop-color="#9aa5b8"/>
+                <stop offset="0.7" stop-color="#5d6575"/>
+                <stop offset="1" stop-color="#2f3542"/>
+              </linearGradient>
+
+              <linearGradient id="gpuAccent" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#22d3ee"/>
+                <stop offset="0.55" stop-color="#6366f1"/>
+                <stop offset="1" stop-color="#a855f7"/>
+              </linearGradient>
+
+              <radialGradient id="gpuWell" cx="0.5" cy="0.42" r="0.72">
+                <stop offset="0" stop-color="#12151d"/>
+                <stop offset="0.7" stop-color="#0a0c11"/>
+                <stop offset="1" stop-color="#191d28"/>
+              </radialGradient>
+
+              <linearGradient id="gpuBlade" x1="0.1" y1="0" x2="0.9" y2="1">
+                <stop offset="0" stop-color="#7f8dad"/>
+                <stop offset="0.35" stop-color="#414c60"/>
+                <stop offset="1" stop-color="#1b202a"/>
+              </linearGradient>
+
+              <radialGradient id="gpuRotor" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-color="#1e2431"/>
+                <stop offset="0.72" stop-color="#141922"/>
+                <stop offset="1" stop-color="#0a0d13"/>
+              </radialGradient>
+
+              <radialGradient id="gpuHub" cx="0.36" cy="0.3" r="0.85">
+                <stop offset="0" stop-color="#5b6579"/>
+                <stop offset="0.55" stop-color="#252b38"/>
+                <stop offset="1" stop-color="#0f1218"/>
+              </radialGradient>
+
+              <radialGradient id="gpuSheen" cx="0.34" cy="0.22" r="0.8">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+                <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.04"/>
+                <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+              </radialGradient>
+
+              <radialGradient id="gpuAmbient" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-color="#6366f1" stop-opacity="0.4"/>
+                <stop offset="0.55" stop-color="#22d3ee" stop-opacity="0.13"/>
+                <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+              </radialGradient>
+
+              <linearGradient id="gpuPcb" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1d2532"/>
+                <stop offset="0.35" stop-color="#121a25"/>
+                <stop offset="1" stop-color="#070a10"/>
+              </linearGradient>
+
+              <linearGradient id="gpuGold" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffeab0"/>
+                <stop offset="0.26" stop-color="#e5b953"/>
+                <stop offset="0.56" stop-color="#bb8a2c"/>
+                <stop offset="0.8" stop-color="#8a611c"/>
+                <stop offset="1" stop-color="#553a10"/>
+              </linearGradient>
+
+              <!-- Гребёнка золотых контактов PCIe -->
+              <pattern id="gpuFingers" width="6.2" height="11" patternUnits="userSpaceOnUse">
+                <rect width="3.4" height="11" fill="url(#gpuGold)"/>
+                <rect width="3.4" height="0.8" fill="#fff8de" opacity="0.55"/>
+              </pattern>
+
+              <filter id="gpuBlur" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="9"/>
+              </filter>
+
+              <!-- Лопасть вентилятора: центр вращения — точка (0, 0) -->
+              <path id="gpuBladeShape" d="M -4 -15.5 C -0.5 -28 2 -42 8 -52 C 19.5 -49 29 -44 34 -41 C 24 -28 13 -18.5 4.5 -15 Z"
+                    fill="url(#gpuBlade)" stroke="#ffffff" stroke-opacity="0.09" stroke-width="0.7"/>
+            </defs>
+
+            <!-- Фоновое свечение -->
+            <ellipse class="gpu-ambient" cx="260" cy="158" rx="252" ry="142" fill="url(#gpuAmbient)"/>
+
+            <!-- Тень на «полу» -->
+            <ellipse cx="262" cy="288" rx="196" ry="14" fill="#05070c" opacity="0.55" filter="url(#gpuBlur)"/>
+
+            <!-- Кронштейн слотов расширения -->
+            <rect x="12" y="64" width="26" height="204" rx="6" fill="url(#gpuMetal)" opacity="0.85"/>
+            <rect x="14" y="70" width="3" height="192" rx="1.5" fill="#ffffff" opacity="0.25"/>
+            <rect x="34" y="64" width="4" height="204" rx="2" fill="#05070c" opacity="0.55"/>
+            <g fill="#0a0c12" opacity="0.72">
+              <rect x="18" y="88" width="11" height="18" rx="2.5"/>
+              <rect x="18" y="124" width="11" height="18" rx="2.5"/>
+              <rect x="18" y="160" width="11" height="18" rx="2.5"/>
+            </g>
+
+            <!-- Крепёжный лепесток кронштейна с отверстием под винт -->
+            <path d="M16 256 h18 v11 a4 4 0 0 1 -4 4 h-10 a4 4 0 0 1 -4 -4 z" fill="url(#gpuMetal)" opacity="0.8"/>
+            <circle cx="25" cy="264" r="3.1" fill="#05070c" opacity="0.8"/>
+
+            <!-- Задняя пластина (backplate) -->
+            <rect x="48" y="64" width="424" height="16" rx="6" fill="url(#gpuMetal)" opacity="0.45"/>
+            <rect x="50" y="66" width="420" height="2.5" rx="1.25" fill="#ffffff" opacity="0.38"/>
+
+            <!-- Разъём питания 12VHPWR -->
+            <rect x="378" y="48" width="68" height="26" rx="5" fill="#171b24" stroke="#39414f" stroke-width="1"/>
+            <rect x="384" y="52" width="56" height="18" rx="3" fill="#080a0f"/>
+            <g fill="#1d2330">
+              <rect x="386" y="54.5" width="6" height="6" rx="1"/>
+              <rect x="394.5" y="54.5" width="6" height="6" rx="1"/>
+              <rect x="403" y="54.5" width="6" height="6" rx="1"/>
+              <rect x="411.5" y="54.5" width="6" height="6" rx="1"/>
+              <rect x="420" y="54.5" width="6" height="6" rx="1"/>
+              <rect x="428.5" y="54.5" width="6" height="6" rx="1"/>
+              <rect x="386" y="62.5" width="6" height="5" rx="1"/>
+              <rect x="394.5" y="62.5" width="6" height="5" rx="1"/>
+              <rect x="403" y="62.5" width="6" height="5" rx="1"/>
+              <rect x="411.5" y="62.5" width="6" height="5" rx="1"/>
+              <rect x="420" y="62.5" width="6" height="5" rx="1"/>
+              <rect x="428.5" y="62.5" width="6" height="5" rx="1"/>
+            </g>
+
+            <!-- Текстолит платы и контакты PCIe Express -->
+            <g class="gpu-pcb">
+              <rect x="94" y="246" width="250" height="21" rx="3" fill="url(#gpuPcb)"/>
+              <rect x="96" y="248" width="246" height="1.8" rx="0.9" fill="#ffffff" opacity="0.12"/>
+
+              <!-- Дорожки на текстолите -->
+              <g fill="#ffffff" opacity="0.06">
+                <rect x="100" y="249.6" width="46" height="1.2" rx="0.6"/>
+                <rect x="152" y="249.6" width="38" height="1.2" rx="0.6"/>
+                <rect x="196" y="249.6" width="44" height="1.2" rx="0.6"/>
+                <rect x="298" y="249.6" width="40" height="1.2" rx="0.6"/>
+              </g>
+
+              <!-- Золотые контакты (гребёнка) -->
+              <rect x="105.4" y="253" width="59.2" height="11" fill="url(#gpuFingers)"/>
+              <rect x="173.6" y="253" width="158.4" height="11" fill="url(#gpuFingers)"/>
+
+              <!-- Ключ-прорезь разъёма -->
+              <rect x="163.4" y="251.5" width="11.4" height="13.9" rx="1.4" fill="#04060a"/>
+              <rect x="163.4" y="251.5" width="11.4" height="1.2" rx="0.6" fill="#ffffff" opacity="0.08"/>
+
+              <!-- Тёплый отсвет от контактов на текстолите -->
+              <rect x="103" y="248.4" width="231" height="4" fill="#e5b953" opacity="0.12"/>
+
+              <!-- Нижняя кромка платы -->
+              <rect x="94" y="265.4" width="250" height="1.6" rx="0.8" fill="#000000" opacity="0.55"/>
+            </g>
+
+            <!-- Корпус -->
+            <rect x="36" y="78" width="448" height="172" rx="20" fill="url(#gpuBody)" stroke="#3a4252" stroke-width="1.5"/>
+            <rect x="40.5" y="82.5" width="439" height="163" rx="16" fill="none" stroke="#ffffff" stroke-opacity="0.06"/>
+            <path d="M58 79.6 H462" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M46 104 L474 80 L474 92 L46 124 Z" fill="#ffffff" opacity="0.035"/>
+
+            <!-- Надписи на верхней кромке -->
+            <text x="64" y="94" fill="#ffffff" fill-opacity="0.42"
+                  font-family="Segoe UI, system-ui, -apple-system, sans-serif"
+                  font-size="8" font-weight="600" letter-spacing="1.8">BYTE·SHOP</text>
+            <text x="456" y="94" text-anchor="end" fill="#ffffff" fill-opacity="0.42"
+                  font-family="Segoe UI, system-ui, -apple-system, sans-serif"
+                  font-size="8" font-weight="600" letter-spacing="1.8">RTX 50 SERIES</text>
+
+            <!-- Шильдик серии -->
+            <g>
+              <circle cx="76" cy="164" r="28" fill="#0c0f16" stroke="url(#gpuAccent)" stroke-width="2.5"/>
+              <circle cx="76" cy="164" r="22" fill="none" stroke="#ffffff" stroke-opacity="0.09"/>
+              <text x="76" y="149.5" text-anchor="middle" fill="#7dd3fc"
+                    font-family="Segoe UI, system-ui, -apple-system, sans-serif"
+                    font-size="7" font-weight="600" letter-spacing="1.2">GPU</text>
+              <text x="76" y="176" text-anchor="middle" fill="#f4f8ff"
+                    font-family="Segoe UI, system-ui, -apple-system, sans-serif"
+                    font-size="24" font-weight="700">64°</text>
+            </g>
+
+            <!-- Вентиляционные щели справа -->
+            <g fill="#090c12" stroke="#ffffff" stroke-opacity="0.05">
+              <rect x="431" y="124" width="6" height="80" rx="3"/>
+              <rect x="445" y="124" width="6" height="80" rx="3"/>
+              <rect x="459" y="124" width="6" height="80" rx="3"/>
+            </g>
+
+            <!-- Винты -->
+            <g fill="#0d1017" stroke="#ffffff" stroke-opacity="0.14">
+              <circle cx="53" cy="98" r="3.4"/>
+              <circle cx="467" cy="98" r="3.4"/>
+              <circle cx="53" cy="236" r="3.4"/>
+              <circle cx="467" cy="236" r="3.4"/>
+            </g>
+
+            <!-- Кулер 1 -->
+            <g class="gpu-fan gpu-fan--left">
+              <circle cx="182" cy="164" r="69" fill="#0a0d14" stroke="#2b3242" stroke-width="2"/>
+              <circle cx="182" cy="164" r="60" fill="url(#gpuWell)"/>
+              <circle cx="182" cy="164" r="57" fill="url(#gpuRotor)"/>
+              <circle cx="182" cy="164" r="57" fill="none" stroke="url(#gpuAccent)" stroke-opacity="0.4" stroke-width="1.6"/>
+              <circle cx="182" cy="164" r="52.5" fill="none" stroke="#ffffff" stroke-opacity="0.06"/>
+              <g class="gpu-fan__blades gpu-fan__blades--left">
+                <use href="#gpuBladeShape" transform="rotate(0)"/>
+                <use href="#gpuBladeShape" transform="rotate(32.73)"/>
+                <use href="#gpuBladeShape" transform="rotate(65.45)"/>
+                <use href="#gpuBladeShape" transform="rotate(98.18)"/>
+                <use href="#gpuBladeShape" transform="rotate(130.91)"/>
+                <use href="#gpuBladeShape" transform="rotate(163.64)"/>
+                <use href="#gpuBladeShape" transform="rotate(196.36)"/>
+                <use href="#gpuBladeShape" transform="rotate(229.09)"/>
+                <use href="#gpuBladeShape" transform="rotate(261.82)"/>
+                <use href="#gpuBladeShape" transform="rotate(294.55)"/>
+                <use href="#gpuBladeShape" transform="rotate(327.27)"/>
+              </g>
+              <circle cx="182" cy="164" r="60" fill="url(#gpuSheen)"/>
+              <path d="M 182 164 m -57 0 a 57 57 0 0 1 57 -57" fill="none"
+                    stroke="url(#gpuAccent)" stroke-opacity="0.75" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="182" cy="164" r="18" fill="url(#gpuHub)" stroke="#4a5468" stroke-width="1"/>
+              <circle cx="182" cy="164" r="11.5" fill="none" stroke="url(#gpuAccent)" stroke-opacity="0.55" stroke-width="1.4"/>
+              <circle cx="182" cy="164" r="3.2" fill="#dff8ff" opacity="0.85"/>
+            </g>
+
+            <!-- Кулер 2 -->
+            <g class="gpu-fan gpu-fan--right">
+              <circle cx="338" cy="164" r="69" fill="#0a0d14" stroke="#2b3242" stroke-width="2"/>
+              <circle cx="338" cy="164" r="60" fill="url(#gpuWell)"/>
+              <circle cx="338" cy="164" r="57" fill="url(#gpuRotor)"/>
+              <circle cx="338" cy="164" r="57" fill="none" stroke="url(#gpuAccent)" stroke-opacity="0.4" stroke-width="1.6"/>
+              <circle cx="338" cy="164" r="52.5" fill="none" stroke="#ffffff" stroke-opacity="0.06"/>
+              <g class="gpu-fan__blades gpu-fan__blades--right">
+                <use href="#gpuBladeShape" transform="rotate(0)"/>
+                <use href="#gpuBladeShape" transform="rotate(32.73)"/>
+                <use href="#gpuBladeShape" transform="rotate(65.45)"/>
+                <use href="#gpuBladeShape" transform="rotate(98.18)"/>
+                <use href="#gpuBladeShape" transform="rotate(130.91)"/>
+                <use href="#gpuBladeShape" transform="rotate(163.64)"/>
+                <use href="#gpuBladeShape" transform="rotate(196.36)"/>
+                <use href="#gpuBladeShape" transform="rotate(229.09)"/>
+                <use href="#gpuBladeShape" transform="rotate(261.82)"/>
+                <use href="#gpuBladeShape" transform="rotate(294.55)"/>
+                <use href="#gpuBladeShape" transform="rotate(327.27)"/>
+              </g>
+              <circle cx="338" cy="164" r="60" fill="url(#gpuSheen)"/>
+              <path d="M 338 164 m -57 0 a 57 57 0 0 1 57 -57" fill="none"
+                    stroke="url(#gpuAccent)" stroke-opacity="0.75" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="338" cy="164" r="18" fill="url(#gpuHub)" stroke="#4a5468" stroke-width="1"/>
+              <circle cx="338" cy="164" r="11.5" fill="none" stroke="url(#gpuAccent)" stroke-opacity="0.55" stroke-width="1.4"/>
+              <circle cx="338" cy="164" r="3.2" fill="#dff8ff" opacity="0.85"/>
+            </g>
+
+            <!-- Световая линия по нижней кромке -->
+            <rect class="gpu-glow" x="60" y="242" width="400" height="3" rx="1.5"
+                  fill="url(#gpuAccent)" opacity="0.75" filter="url(#gpuBlur)"/>
+            <rect x="60" y="243" width="400" height="2" rx="1" fill="url(#gpuAccent)" opacity="0.9"/>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Статистика -->
+    <section class="stats" aria-label="Показатели магазина">
+      <div class="stats__item">
+        <p class="stats__value">1 000+</p>
+        <p class="stats__label">товаров в наличии</p>
+      </div>
+      <div class="stats__item">
+        <p class="stats__value">12 ч</p>
+        <p class="stats__label">отправка заказа</p>
+      </div>
+      <div class="stats__item">
+        <p class="stats__value">3 года</p>
+        <p class="stats__label">гарантия на сборки</p>
+      </div>
+    </section>
+
+    <!-- Категории -->
+    <section class="section" id="categories" aria-labelledby="categories-title">
+      <div class="section__header">
+        <div>
+          <h2 class="section__title" id="categories-title">Категории</h2>
+          <p class="section__subtitle">Всё для сборки и апгрейда — в одном месте.</p>
+        </div>
+        <a class="section__link" href="catalog.html">Смотреть все →</a>
+      </div>
+
+      <div class="categories-grid">
+        <a class="category-card" href="catalog.html#catalog-cpu">
+          <span class="category-card__code" aria-hidden="true">CPU</span>
+          <span class="category-card__title">Процессоры</span>
+        </a>
+
+        <a class="category-card" href="catalog.html#catalog-gpu">
+          <span class="category-card__code" aria-hidden="true">GPU</span>
+          <span class="category-card__title">Видеокарты</span>
+        </a>
+
+        <a class="category-card" href="catalog.html#catalog-mb">
+          <span class="category-card__code" aria-hidden="true">MB</span>
+          <span class="category-card__title">Материнские платы</span>
+        </a>
+
+        <a class="category-card" href="catalog.html#catalog-ram">
+          <span class="category-card__code" aria-hidden="true">RAM</span>
+          <span class="category-card__title">Оперативная память</span>
+        </a>
+
+        <a class="category-card" href="catalog.html#catalog-ssd">
+          <span class="category-card__code" aria-hidden="true">SSD</span>
+          <span class="category-card__title">Накопители</span>
+        </a>
+
+        <a class="category-card" href="catalog.html#catalog-psu">
+          <span class="category-card__code" aria-hidden="true">PSU</span>
+          <span class="category-card__title">Блоки питания</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Хиты продаж -->
+    <section class="section" id="popular" aria-labelledby="popular-title">
+      <div class="section__header">
+        <div>
+          <h2 class="section__title" id="popular-title">Хиты продаж</h2>
+          <p class="section__subtitle">Самые популярные комплектующие у наших покупателей.</p>
+        </div>
+        <a class="section__link" href="catalog.html">Смотреть все →</a>
+      </div>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <span class="product-card__badge product-card__badge--hit">Хит</span>
+          <a class="product-card__media" href="product.html">
+            <img
+              class="product-card__image"
+              src="img/5070ti.jpg"
+              alt="Видеокарта RTX 5070 Ti 16 GB"
+              width="640"
+              height="480"
+              loading="lazy"
+            >
+          </a>
+          <div class="product-card__body">
+            <p class="product-card__brand">NVIDIA · GeForce RTX</p>
+            <h3 class="product-card__title">
+              <a href="product.html">RTX 5070 Ti 16 GB</a>
+            </h3>
+            <ul class="product-card__specs">
+              <li>16 GB GDDR7</li>
+              <li>PCIe 5.0</li>
+            </ul>
+            <div class="product-card__footer">
+              <div class="product-card__price">
+                <span class="product-card__current">89 990 ₽</span>
+                <span class="product-card__old">99 990 ₽</span>
+              </div>
+              <button
+                class="product-card__cart"
+                type="button"
+                data-product="RTX 5070 Ti 16 GB"
+                aria-label="Добавить RTX 5070 Ti 16 GB в корзину"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="product-card__badge product-card__badge--new">Новинка</span>
+          <a class="product-card__media" href="product.html">
+            <img
+              class="product-card__image"
+              src="img/7_9800.jpg"
+              alt="Процессор Ryzen 7 9800X3D"
+              width="640"
+              height="480"
+              loading="lazy"
+            >
+          </a>
+          <div class="product-card__body">
+            <p class="product-card__brand">AMD · Ryzen 7</p>
+            <h3 class="product-card__title">
+              <a href="product.html">Ryzen 7 9800X3D</a>
+            </h3>
+            <ul class="product-card__specs">
+              <li>8 ядер</li>
+              <li>AM5</li>
+            </ul>
+            <div class="product-card__footer">
+              <div class="product-card__price">
+                <span class="product-card__current">54 990 ₽</span>
+              </div>
+              <button
+                class="product-card__cart"
+                type="button"
+                data-product="Ryzen 7 9800X3D"
+                aria-label="Добавить Ryzen 7 9800X3D в корзину"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a class="product-card__media" href="product.html">
+            <img
+              class="product-card__image"
+              src="img/kingstom.jpg"
+              alt="Оперативная память Kingston Fury Beast DDR5 32 GB"
+              width="640"
+              height="480"
+              loading="lazy"
+            >
+          </a>
+          <div class="product-card__body">
+            <p class="product-card__brand">Kingston · Fury Beast</p>
+            <h3 class="product-card__title">
+              <a href="product.html">DDR5 32 GB 6000 МГц</a>
+            </h3>
+            <ul class="product-card__specs">
+              <li>2 × 16 GB</li>
+              <li>CL30</li>
+            </ul>
+            <div class="product-card__footer">
+              <div class="product-card__price">
+                <span class="product-card__current">11 490 ₽</span>
+              </div>
+              <button
+                class="product-card__cart"
+                type="button"
+                data-product="Kingston Fury Beast DDR5 32 GB"
+                aria-label="Добавить Kingston Fury Beast DDR5 32 GB в корзину"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="product-card__badge product-card__badge--discount">-15%</span>
+          <a class="product-card__media" href="product.html">
+            <img
+              class="product-card__image"
+              src="img/samsungssd.jpg"
+              alt="SSD Samsung 990 PRO 2 TB"
+              width="640"
+              height="480"
+              loading="lazy"
+            >
+          </a>
+          <div class="product-card__body">
+            <p class="product-card__brand">Samsung · 990 PRO</p>
+            <h3 class="product-card__title">
+              <a href="product.html">NVMe SSD 2 TB</a>
+            </h3>
+            <ul class="product-card__specs">
+              <li>PCIe 4.0</li>
+              <li>7450 МБ/с</li>
+            </ul>
+            <div class="product-card__footer">
+              <div class="product-card__price">
+                <span class="product-card__current">17 990 ₽</span>
+                <span class="product-card__old">21 190 ₽</span>
+              </div>
+              <button
+                class="product-card__cart"
+                type="button"
+                data-product="Samsung 990 PRO 2 TB"
+                aria-label="Добавить Samsung 990 PRO 2 TB в корзину"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="section" aria-labelledby="features-title">
+      <div class="section__header">
+        <div>
+          <h2 class="section__title" id="features-title">Почему ByteShop</h2>
+          <p class="section__subtitle">Сервис, который делает апгрейд простым.</p>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">✓</span>
+          <h3 class="feature-card__title">Проверенные бренды</h3>
+          <p class="feature-card__text">Только официальные поставки и гарантия производителя.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">⚡</span>
+          <h3 class="feature-card__title">Быстрая доставка</h3>
+          <p class="feature-card__text">Отправляем заказы в течение 12 часов после оплаты.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🛠</span>
+          <h3 class="feature-card__title">Сборка и настройка</h3>
+          <p class="feature-card__text">Поможем с совместимостью и соберём ПК под ключ.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">↺</span>
+          <h3 class="feature-card__title">Гарантия 3 года</h3>
+          <p class="feature-card__text">На готовые сборки и профессиональную диагностику.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Сборка ПК -->
+    <section class="build-banner" aria-labelledby="build-title">
+      <div class="build-banner__content">
+        <h2 class="build-banner__title" id="build-title">Соберём ПК под ваши задачи</h2>
+        <p class="build-banner__text">
+          Оставьте заявку — подберём комплектующие под бюджет и игры,
+          проверим совместимость и соберём систему с гарантией 3 года.
+        </p>
+        <a class="button button--primary" href="order.html">Заказать сборку →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="index.html">
+          <span class="site-footer__logo-icon" aria-hidden="true">B</span>
+          ByteShop
+        </a>
+        <p class="site-footer__description">
+          Магазин ПК-комплектующих и готовых сборок.
+          Техника для игр, работы и творчества.
+        </p>
+        <div class="site-footer__social">
+          <a href="#" aria-label="Telegram">Telegram</a>
+          <a href="#" aria-label="VK">VK</a>
+          <a href="#" aria-label="YouTube">YouTube</a>
+        </div>
+      </div>
+
+      <nav class="site-footer__column" aria-label="Навигация">
+        <p class="site-footer__title">Навигация</p>
+        <ul class="site-footer__list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="order.html">Заявка</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__column" aria-label="Каталог">
+        <p class="site-footer__title">Каталог</p>
+        <ul class="site-footer__list">
+          <li><a href="catalog.html">Видеокарты</a></li>
+          <li><a href="catalog.html">Процессоры</a></li>
+          <li><a href="catalog.html">Материнские платы</a></li>
+          <li><a href="catalog.html">Память и SSD</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer__column">
+        <p class="site-footer__title">Контакты</p>
+        <address class="site-footer__contacts">
+          <p>Москва, Волгоградский проспект, 24</p>
+          <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+          <p>Ежедневно 10:00–20:00</p>
+          <p><a href="mailto:support@byteshop.ru">support@byteshop.ru</a></p>
+        </address>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© 2026 ByteShop. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <a class="to-top" href="#top" aria-label="Наверх">
+    <span class="to-top__icon" aria-hidden="true">↑</span>
+  </a>
+
+  <!-- Модальное окно -->
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <button class="order-dialog__close" id="close-order-dialog" type="button" aria-label="Закрыть окно">
+      ×
+    </button>
+    <h2 class="order-dialog__title" id="order-dialog-title">Оставить заявку</h2>
+
+    <form class="order-form" id="order-form">
+      <input type="hidden" id="selected-product" name="selected-product">
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-name">Имя</label>
+        <input class="order-form__input" id="order-name" name="name" type="text" minlength="2" autocomplete="name" required>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-phone">Телефон</label>
+        <input class="order-form__input" id="order-phone" name="phone" type="tel" autocomplete="tel" required>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-comment">Комментарий</label>
+        <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3"></textarea>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label order-form__label--checkbox" for="order-consent">
+          <input class="order-form__checkbox" id="order-consent" name="consent" type="checkbox" required>
+          Согласен на обработку данных
+        </label>
+      </div>
+
+      <button class="button button--primary" type="submit">Отправить заявку</button>
+    </form>
+
+    <p class="success-message" id="success-message" role="status" hidden>Заявка отправлена!</p>
+  </dialog>
+
+  <!-- Уведомление -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

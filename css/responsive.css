@@ -1,0 +1,422 @@
+/* ===============================
+Адаптивные стили проекта ByteShop
+Mobile First подход
+=============================== */
+
+/* ===============================
+Маленькие экраны (до 639px)
+=============================== */
+@media (max-width: 639px) {
+  body {
+    padding-top: 64px;
+  }
+
+  .site-header {
+    padding: 12px 16px;
+  }
+
+  .site-header__inner {
+    gap: 8px;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav__list {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 4px 0;
+  }
+
+  .site-nav__link {
+    padding: 6px 12px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .site-header__actions {
+    gap: 8px;
+  }
+
+  .site-header__cart {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 24px 20px;
+  }
+
+  .hero__title {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
+  .hero__showcase {
+    display: none;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stats__item {
+    padding: 16px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .category-card {
+    padding: 20px 16px;
+  }
+
+  .category-card__code {
+    font-size: 28px;
+  }
+
+  .category-card__title {
+    font-size: 14px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-card__body {
+    padding: 12px;
+  }
+
+  .product-card__title {
+    font-size: 14px;
+  }
+
+  .product-card__specs {
+    font-size: 12px;
+  }
+
+  .product-card__current {
+    font-size: 16px;
+  }
+
+  .product-card__cart {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .build-banner {
+    padding: 24px 20px;
+  }
+
+  .build-banner__title {
+    font-size: 22px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .section__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .section__title {
+    font-size: 22px;
+  }
+
+  .catalog__tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .catalog__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .catalog-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .catalog-toolbar__input,
+  .catalog-toolbar__select {
+    width: 100%;
+  }
+
+  .page-head h1 {
+    font-size: 28px;
+  }
+
+  .product-page {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .product-page__title {
+    font-size: 24px;
+  }
+
+  .product-page__price {
+    font-size: 28px;
+  }
+
+  .product-page__actions {
+    flex-direction: column;
+  }
+
+  .product-page__actions .button {
+    width: 100%;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Форма */
+  .order-aside {
+    gap: 12px;
+  }
+
+  .order-dialog {
+    width: calc(100% - 24px);
+    max-width: 100%;
+    padding: 20px;
+    margin: 12px;
+  }
+
+  .order-form__actions {
+    flex-direction: column;
+  }
+
+  .order-form__actions .button {
+    width: 100%;
+  }
+
+  /* Таблица */
+  .table-wrapper {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+
+  .product-table {
+    min-width: 520px;
+  }
+
+  /* Футер */
+  .site-footer {
+    padding: 32px 16px 16px;
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  /* Контакты */
+  .contacts-grid {
+    gap: 12px;
+  }
+
+  .contact-card {
+    padding: 14px 16px;
+  }
+
+  .contact-card__title {
+    font-size: 16px;
+  }
+
+  .contacts-map__iframe {
+    min-height: 280px;
+  }
+
+  /* Кнопка «Наверх» */
+  .to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+
+  .to-top__icon {
+    font-size: 24px;
+  }
+
+  /* Toast */
+  .toast {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+  }
+}
+
+/* ===============================
+Планшетная версия (640px и выше)
+=============================== */
+@media (min-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contacts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .order-form__actions {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .order-form__actions .button {
+    width: auto;
+  }
+}
+
+/* ===============================
+Большой планшет (768px и выше)
+=============================== */
+@media (min-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .hero__showcase {
+    display: block;
+  }
+
+  .product-page {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1.5fr 1fr 1fr 1.1fr;
+  }
+
+  .site-footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ===============================
+Десктопная версия (1024px и выше)
+=============================== */
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contacts-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero__title {
+    font-size: 56px;
+  }
+
+  .build-banner__title {
+    font-size: 36px;
+  }
+}
+
+/* ===============================
+Широкий десктоп (1280px и выше)
+=============================== */
+@media (min-width: 1280px) {
+  .container,
+  .site-header__inner,
+  .site-footer__inner,
+  .site-footer__bottom,
+  .hero,
+  .section,
+  .stats,
+  .build-banner,
+  .catalog,
+  .catalog-toolbar,
+  .page-head,
+  .product-page,
+  .breadcrumbs {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ===============================
+Уменьшение движения для пользователей
+=============================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .gpu-figure__svg,
+  .gpu-figure__svg * {
+    animation: none !important;
+  }
+}
