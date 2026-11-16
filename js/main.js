@@ -88,7 +88,7 @@ if (typeof product !== 'undefined') {
 // ===============================
 // Состояние каталога
 // ===============================
-let currentCategory = 'cpu';
+let currentCategory = 'all';
 let currentSort = 'default';
 let currentSearch = '';
 let cartCount = 0;
@@ -104,7 +104,7 @@ function renderProductCard(item) {
   // Медиа-ссылка.
   const media = document.createElement('a');
   media.className = 'product-card__media';
-  media.href = 'product.html';
+  media.href = `product.html?id=${item.id}`;
 
   const image = document.createElement('img');
   image.className = 'product-card__image';
@@ -127,7 +127,7 @@ function renderProductCard(item) {
   title.className = 'product-card__title';
 
   const titleLink = document.createElement('a');
-  titleLink.href = 'product.html';
+  titleLink.href = `product.html?id=${item.id}`;
   titleLink.textContent = item.title;
   title.appendChild(titleLink);
 
@@ -295,18 +295,41 @@ function attachCartButtons() {
 // ===============================
 // Вкладки категорий
 // ===============================
+
+// Подсвечиваем нужную кнопку и перерисовываем сетку.
+function setCategory(category) {
+  currentCategory = category;
+
+  document.querySelectorAll('.catalog__tab').forEach((tab) => {
+    tab.classList.toggle('catalog__tab--active', tab.dataset.tab === category);
+  });
+
+  renderCatalog();
+}
+
+// Категория из адреса вида catalog.html#catalog-gpu.
+function getCategoryFromHash() {
+  const match = window.location.hash.match(/^#catalog-([a-z]+)$/);
+
+  if (!match || !categories[match[1]]) return null;
+
+  return match[1];
+}
+
 function attachTabs() {
   const tabs = document.querySelectorAll('.catalog__tab');
   if (tabs.length === 0) return;
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      tabs.forEach((t) => t.classList.remove('catalog__tab--active'));
-      tab.classList.add('catalog__tab--active');
-
-      currentCategory = tab.dataset.tab;
-      renderCatalog();
+      setCategory(tab.dataset.tab);
     });
+  });
+
+  // Если на страницу пришли по ссылке из блока категорий.
+  window.addEventListener('hashchange', () => {
+    const category = getCategoryFromHash();
+    if (category) setCategory(category);
   });
 }
 
@@ -397,12 +420,197 @@ function attachForms() {
 }
 
 // ===============================
+// Карточка товара на странице product.html
+// ===============================
+
+// Названия категорий в единственном числе — для alt картинки.
+const categoryAltWords = {
+  cpu: 'Процессор',
+  gpu: 'Видеокарта',
+  mb: 'Материнская плата',
+  ram: 'Оперативная память',
+  ssd: 'Накопитель',
+  psu: 'Блок питания'
+};
+
+// Товар берём по параметру ?id=, иначе показываем первый из массива.
+function getProductFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const id = Number(params.get('id'));
+  const found = products.find((item) => item.id === id);
+
+  return found || products[0];
+}
+
+// Подпись бейджа: «Хит», «Новинка» или скидка в процентах.
+function getBadgeText(item) {
+  if (item.badge === 'hit') return 'Хит';
+  if (item.badge === 'new') return 'Новинка';
+  if (item.badge === 'discount') return `-${item.discountPercent}%`;
+
+  return '';
+}
+
+// Рейтинг в виде звёзд: ★★★★☆.
+function getStarsText(rating) {
+  const filled = Math.round(Number(rating)) || 0;
+  const stars = Math.min(Math.max(filled, 0), 5);
+
+  return '★'.repeat(stars) + '☆'.repeat(5 - stars);
+}
+
+// Правильная форма слова «отзыв» для числа.
+function getReviewsWord(count) {
+  const lastTwo = Math.abs(Number(count)) % 100;
+  const lastOne = lastTwo % 10;
+
+  if (lastTwo > 10 && lastTwo < 20) return 'отзывов';
+  if (lastOne === 1) return 'отзыв';
+  if (lastOne >= 2 && lastOne <= 4) return 'отзыва';
+
+  return 'отзывов';
+}
+
+// Заполняем страницу товара данными из массива products.
+function renderProductPage() {
+  const page = document.getElementById('product-page');
+  if (!page) return;
+
+  const item = getProductFromUrl();
+  const finalPrice = calculateFinalPrice(item.price, item.discountPercent);
+  const isInStock = item.isAvailable === true;
+
+  // Заголовок вкладки и хлебные крошки.
+  document.title = `${item.title} — ByteShop`;
+
+  const breadcrumb = document.getElementById('product-breadcrumb');
+  if (breadcrumb) breadcrumb.textContent = item.title;
+
+  // Бейдж на картинке.
+  const badge = document.getElementById('product-badge');
+  if (badge) {
+    const badgeText = getBadgeText(item);
+    badge.textContent = badgeText;
+    badge.hidden = badgeText === '';
+  }
+
+  // Картинка.
+  const image = document.getElementById('product-image');
+  if (image) {
+    image.src = item.image;
+    image.alt = `${categoryAltWords[item.category] || 'Товар'} ${item.title}`;
+  }
+
+  // Основные данные.
+  const brand = document.getElementById('product-brand');
+  if (brand) brand.textContent = item.brand;
+
+  const title = document.getElementById('product-title');
+  if (title) title.textContent = item.title;
+
+  // Рейтинг и число отзывов.
+  const stars = document.getElementById('product-stars');
+  if (stars) stars.textContent = getStarsText(item.rating);
+
+  const rating = document.getElementById('product-rating');
+  if (rating) rating.textContent = Number(item.rating).toFixed(1);
+
+  const reviewCount = document.getElementById('product-review-count');
+  if (reviewCount) {
+    reviewCount.textContent = `· ${item.reviewCount} ${getReviewsWord(item.reviewCount)}`;
+  }
+
+  // Цена, старая цена и скидка.
+  const price = document.getElementById('product-price');
+  if (price) price.textContent = formatPrice(finalPrice);
+
+  const oldPrice = document.getElementById('product-old-price');
+  if (oldPrice) {
+    const hasOldPrice = item.oldPrice && item.oldPrice > 0;
+    oldPrice.textContent = hasOldPrice ? formatPrice(item.oldPrice) : '';
+    oldPrice.hidden = !hasOldPrice;
+  }
+
+  const discount = document.getElementById('product-discount');
+  if (discount) {
+    const hasDiscount = item.discountPercent > 0;
+    discount.textContent = hasDiscount ? `-${item.discountPercent}%` : '';
+    discount.hidden = !hasDiscount;
+  }
+
+  // Наличие.
+  const availability = document.getElementById('product-availability');
+  if (availability) {
+    availability.textContent = getProductStatus(item);
+    availability.classList.toggle('product-page__availability--out', !isInStock);
+  }
+
+  // Короткое описание и блок «Описание».
+  const descriptionTexts = item.description || [];
+
+  const text = document.getElementById('product-text');
+  if (text) text.textContent = descriptionTexts[0] || '';
+
+  const description = document.getElementById('product-description');
+  if (description) {
+    description.innerHTML = '';
+
+    descriptionTexts.forEach((paragraph) => {
+      const p = document.createElement('p');
+      p.textContent = paragraph;
+      description.appendChild(p);
+    });
+  }
+
+  // Кнопка «В корзину».
+  const cartButton = document.getElementById('product-cart');
+  if (cartButton) {
+    cartButton.dataset.product = item.title;
+    cartButton.setAttribute('aria-label', `Добавить ${item.title} в корзину`);
+    cartButton.disabled = !isInStock;
+    cartButton.textContent = isInStock ? 'В корзину' : 'Нет в наличии';
+  }
+
+  // Таблица характеристик.
+  const specsBody = document.getElementById('product-specs-body');
+  if (specsBody) {
+    specsBody.innerHTML = '';
+
+    const rows = [
+      ['Категория', categories[item.category]],
+      ...(item.details || []),
+      ['Гарантия', '36 месяцев'],
+      ['Наличие', getProductStatus(item)]
+    ];
+
+    rows.forEach(([name, value]) => {
+      const tr = document.createElement('tr');
+
+      const th = document.createElement('th');
+      th.scope = 'row';
+      th.textContent = name;
+
+      const td = document.createElement('td');
+      td.textContent = value;
+
+      tr.appendChild(th);
+      tr.appendChild(td);
+      specsBody.appendChild(tr);
+    });
+  }
+
+  const caption = document.getElementById('product-specs-caption');
+  if (caption) caption.textContent = `Характеристики: ${item.title}`;
+}
+
+// ===============================
 // Инициализация
 // ===============================
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM загружен, инициализация ByteShop');
 
-  renderCatalog();
+  renderProductPage();
+  setCategory(getCategoryFromHash() || 'all');
   attachTabs();
   attachToolbar();
   attachCartButtons();

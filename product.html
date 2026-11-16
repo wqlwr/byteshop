@@ -28,9 +28,6 @@
             <a class="site-nav__link" href="catalog.html">Каталог</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="order.html">Заявка</a>
-          </li>
-          <li class="site-nav__item">
             <a class="site-nav__link" href="about.html">О нас</a>
           </li>
           <li class="site-nav__item">
@@ -44,7 +41,7 @@
           <span class="icon-button__icon" aria-hidden="true">🛒</span>
           <span class="site-header__cart-count" data-cart-count>0</span>
         </button>
-        <a class="button button--ghost" href="order.html">Войти</a>
+        <a class="button button--ghost" href="account.html">Личный кабинет</a>
       </div>
     </div>
   </header>
@@ -53,50 +50,45 @@
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a href="index.html">Главная</a>
       <a href="catalog.html">Каталог</a>
-      <span class="breadcrumbs__current">RTX 5070 Ti 16 GB</span>
+      <span class="breadcrumbs__current" id="product-breadcrumb">RTX 5070 Ti 16 GB</span>
     </nav>
 
-    <article class="product-page">
+    <!-- Карточка товара заполняется скриптом renderProductPage() по параметру ?id= -->
+    <article class="product-page" id="product-page">
       <div class="product-page__media">
-        <span class="product-page__badge">Хит</span>
+        <span class="product-page__badge" id="product-badge" hidden></span>
         <img
           class="product-page__image"
+          id="product-image"
           src="img/5070ti.jpg"
-          alt="Видеокарта NVIDIA GeForce RTX 5070 Ti 16 GB"
+          alt=""
           width="640"
           height="480"
         >
       </div>
 
       <div class="product-page__info">
-        <p class="product-page__brand">NVIDIA · GeForce RTX</p>
-        <h1 class="product-page__title">RTX 5070 Ti 16 GB</h1>
+        <p class="product-page__brand" id="product-brand"></p>
+        <h1 class="product-page__title" id="product-title"></h1>
 
         <div class="product-page__rating">
-          <span class="product-page__stars" aria-hidden="true">★★★★★</span>
-          <span>4.8</span>
-          <span class="product-page__rating-note">· 124 отзыва</span>
+          <span class="product-page__stars" id="product-stars" aria-hidden="true"></span>
+          <span id="product-rating"></span>
+          <span class="product-page__rating-note" id="product-review-count"></span>
         </div>
 
         <div class="product-page__price-row">
-          <span class="product-page__price">89 990 ₽</span>
-          <span class="product-page__old">99 990 ₽</span>
-          <span class="product-page__discount">-10%</span>
+          <span class="product-page__price" id="product-price"></span>
+          <span class="product-page__old" id="product-old-price" hidden></span>
+          <span class="product-page__discount" id="product-discount" hidden></span>
         </div>
 
-        <p class="product-page__availability">В наличии</p>
+        <p class="product-page__availability" id="product-availability"></p>
 
-        <p class="product-page__text">
-          Видеокарта для игр в 2K и 4K, работы с графикой и монтажа.
-          16 ГБ видеопамяти, поддержка DLSS 3 и трассировки лучей.
-        </p>
+        <p class="product-page__text" id="product-text"></p>
 
         <div class="product-page__actions">
-          <button
-            class="button button--primary product-page__cart"
-            type="button"
-            data-product="RTX 5070 Ti 16 GB"
-          >
+          <button class="button button--primary product-page__cart" id="product-cart" type="button">
             В корзину
           </button>
         </div>
@@ -111,17 +103,7 @@
 
     <section class="section" aria-labelledby="description-title">
       <h2 class="section__title" id="description-title">Описание</h2>
-      <div class="product-page__description">
-        <p>
-          GeForce RTX 5070 Ti — решение для требовательных игр и рабочих задач.
-          Карта обеспечивает стабильный FPS в современных проектах и подходит
-          для сборки мощного игрового ПК.
-        </p>
-        <p>
-          Благодаря 16 ГБ памяти модель хорошо показывает себя в монтаже видео,
-          3D-рендеринге и работе с нейросетями.
-        </p>
-      </div>
+      <div class="product-page__description" id="product-description"></div>
     </section>
 
     <section class="section" aria-labelledby="specs-title">
@@ -129,39 +111,14 @@
 
       <div class="table-wrapper">
         <table class="product-table">
-          <caption>Характеристики видеокарты</caption>
+          <caption id="product-specs-caption">Характеристики товара</caption>
           <thead>
             <tr>
               <th scope="col">Параметр</th>
               <th scope="col">Значение</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Категория</th>
-              <td>Видеокарты</td>
-            </tr>
-            <tr>
-              <th scope="row">Объём памяти</th>
-              <td>16 GB</td>
-            </tr>
-            <tr>
-              <th scope="row">Тип памяти</th>
-              <td>GDDR7</td>
-            </tr>
-            <tr>
-              <th scope="row">Интерфейс</th>
-              <td>PCIe 5.0</td>
-            </tr>
-            <tr>
-              <th scope="row">Рекомендуемый блок питания</th>
-              <td>750 Вт</td>
-            </tr>
-            <tr>
-              <th scope="row">Гарантия</th>
-              <td>36 месяцев</td>
-            </tr>
-          </tbody>
+          <tbody id="product-specs-body"></tbody>
         </table>
       </div>
     </section>
@@ -195,12 +152,12 @@
 
       <div class="products-grid">
         <article class="product-card">
-          <a class="product-card__media" href="product.html">
+          <a class="product-card__media" href="product.html?id=5">
             <img class="product-card__image" src="img/5080.jpg" alt="RTX 5080 16 GB" width="640" height="480" loading="lazy">
           </a>
           <div class="product-card__body">
             <p class="product-card__brand">NVIDIA · GeForce RTX</p>
-            <h3 class="product-card__title"><a href="product.html">RTX 5080 16 GB</a></h3>
+            <h3 class="product-card__title"><a href="product.html?id=5">RTX 5080 16 GB</a></h3>
             <ul class="product-card__specs">
               <li>16 GB GDDR7</li>
               <li>PCIe 5.0</li>
@@ -215,12 +172,12 @@
         </article>
 
         <article class="product-card">
-          <a class="product-card__media" href="product.html">
+          <a class="product-card__media" href="product.html?id=1">
             <img class="product-card__image" src="img/7_9800.jpg" alt="Ryzen 7 9800X3D" width="640" height="480" loading="lazy">
           </a>
           <div class="product-card__body">
             <p class="product-card__brand">AMD · Ryzen 7</p>
-            <h3 class="product-card__title"><a href="product.html">Ryzen 7 9800X3D</a></h3>
+            <h3 class="product-card__title"><a href="product.html?id=1">Ryzen 7 9800X3D</a></h3>
             <ul class="product-card__specs">
               <li>8 ядер</li>
               <li>AM5</li>
@@ -235,12 +192,12 @@
         </article>
 
         <article class="product-card">
-          <a class="product-card__media" href="product.html">
+          <a class="product-card__media" href="product.html?id=9">
             <img class="product-card__image" src="img/kingstom.jpg" alt="DDR5 32 GB 6000 МГц" width="640" height="480" loading="lazy">
           </a>
           <div class="product-card__body">
             <p class="product-card__brand">Kingston · Fury Beast</p>
-            <h3 class="product-card__title"><a href="product.html">DDR5 32 GB 6000 МГц</a></h3>
+            <h3 class="product-card__title"><a href="product.html?id=9">DDR5 32 GB 6000 МГц</a></h3>
             <ul class="product-card__specs">
               <li>2 × 16 GB</li>
               <li>CL30</li>
@@ -268,11 +225,6 @@
           Магазин ПК-комплектующих и готовых сборок.
           Техника для игр, работы и творчества.
         </p>
-        <div class="site-footer__social">
-          <a href="#" aria-label="Telegram">Telegram</a>
-          <a href="#" aria-label="VK">VK</a>
-          <a href="#" aria-label="YouTube">YouTube</a>
-        </div>
       </div>
 
       <nav class="site-footer__column" aria-label="Навигация">
@@ -282,7 +234,6 @@
           <li><a href="catalog.html">Каталог</a></li>
           <li><a href="order.html">Заявка</a></li>
           <li><a href="about.html">О нас</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
 
@@ -299,11 +250,29 @@
       <div class="site-footer__column">
         <p class="site-footer__title">Контакты</p>
         <address class="site-footer__contacts">
-          <p>Москва, Волгоградский проспект, 24</p>
-          <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
-          <p>Ежедневно 10:00–20:00</p>
-          <p><a href="mailto:support@byteshop.ru">support@byteshop.ru</a></p>
+          <p class="site-footer__contact">
+            <span class="site-footer__icon" aria-hidden="true">📍</span>
+            <span>Москва, Волгоградский проспект, 24</span>
+          </p>
+          <p class="site-footer__contact">
+            <span class="site-footer__icon" aria-hidden="true">📞</span>
+            <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+          </p>
+          <p class="site-footer__contact">
+            <span class="site-footer__icon" aria-hidden="true">🕒</span>
+            <span>Ежедневно 10:00–20:00</span>
+          </p>
+          <p class="site-footer__contact">
+            <span class="site-footer__icon" aria-hidden="true">📧</span>
+            <a href="mailto:support@byteshop.ru">support@byteshop.ru</a>
+          </p>
         </address>
+
+        <div class="site-footer__social">
+          <a href="#" aria-label="Telegram">Telegram</a>
+          <a href="#" aria-label="VK">VK</a>
+          <a href="#" aria-label="YouTube">YouTube</a>
+        </div>
       </div>
     </div>
 
@@ -312,9 +281,11 @@
     </div>
   </footer>
 
-  <a class="to-top" href="#top" aria-label="Наверх">
-    <span class="to-top__icon" aria-hidden="true">↑</span>
+  <a class="chat-button" href="order.html" aria-label="Чат с менеджером — перейти к оформлению заявки">
+    <span class="chat-button__icon" aria-hidden="true">💬</span>
   </a>
+
+  <a class="button button--secondary to-top" href="#top">Наверх</a>
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 </body>

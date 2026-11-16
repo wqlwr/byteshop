@@ -28,9 +28,6 @@
             <a class="site-nav__link" href="catalog.html">Каталог</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="order.html">Заявка</a>
-          </li>
-          <li class="site-nav__item">
             <a class="site-nav__link" href="about.html">О нас</a>
           </li>
           <li class="site-nav__item">
@@ -44,7 +41,7 @@
           <span class="icon-button__icon" aria-hidden="true">🛒</span>
           <span class="site-header__cart-count" data-cart-count>0</span>
         </button>
-        <a class="button button--ghost" href="order.html">Войти</a>
+        <a class="button button--ghost" href="account.html">Личный кабинет</a>
       </div>
     </div>
   </header>
@@ -198,11 +195,6 @@
           Магазин ПК-комплектующих и готовых сборок.
           Техника для игр, работы и творчества.
         </p>
-        <div class="site-footer__social">
-          <a href="#" aria-label="Telegram">Telegram</a>
-          <a href="#" aria-label="VK">VK</a>
-          <a href="#" aria-label="YouTube">YouTube</a>
-        </div>
       </div>
 
       <nav class="site-footer__column" aria-label="Навигация">
@@ -212,7 +204,6 @@
           <li><a href="catalog.html">Каталог</a></li>
           <li><a href="order.html">Заявка</a></li>
           <li><a href="about.html">О нас</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
 
@@ -229,11 +220,29 @@
       <div class="site-footer__column">
         <p class="site-footer__title">Контакты</p>
         <address class="site-footer__contacts">
-          <p>Москва, Волгоградский проспект, 24</p>
-          <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
-          <p>Ежедневно 10:00–20:00</p>
-          <p><a href="mailto:support@byteshop.ru">support@byteshop.ru</a></p>
+          <p class="site-footer__contact">
+            <span class="site-footer__icon" aria-hidden="true">📍</span>
+            <span>Москва, Волгоградский проспект, 24</span>
+          </p>
+          <p class="site-footer__contact">
+            <span class="site-footer__icon" aria-hidden="true">📞</span>
+            <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+          </p>
+          <p class="site-footer__contact">
+            <span class="site-footer__icon" aria-hidden="true">🕒</span>
+            <span>Ежедневно 10:00–20:00</span>
+          </p>
+          <p class="site-footer__contact">
+            <span class="site-footer__icon" aria-hidden="true">📧</span>
+            <a href="mailto:support@byteshop.ru">support@byteshop.ru</a>
+          </p>
         </address>
+
+        <div class="site-footer__social">
+          <a href="#" aria-label="Telegram">Telegram</a>
+          <a href="#" aria-label="VK">VK</a>
+          <a href="#" aria-label="YouTube">YouTube</a>
+        </div>
       </div>
     </div>
 
@@ -242,8 +251,10 @@
     </div>
   </footer>
 
-  <a class="to-top" href="#top" aria-label="Наверх">
-    <span class="to-top__icon" aria-hidden="true">↑</span>
+  <a class="chat-button" href="order.html" aria-label="Чат с менеджером — перейти к оформлению заявки">
+    <span class="chat-button__icon" aria-hidden="true">💬</span>
   </a>
+
+  <a class="button button--secondary to-top" href="#top">Наверх</a>
 </body>
 </html>

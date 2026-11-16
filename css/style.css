@@ -189,6 +189,12 @@ address {
   background: rgba(148, 163, 184, 0.12);
 }
 
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* ===============================
 Шапка
 =============================== */
@@ -984,6 +990,11 @@ address {
   font-weight: 700;
 }
 
+/* Товара нет в наличии */
+.product-page__availability--out {
+  color: var(--color-danger);
+}
+
 .product-page__text {
   margin: 0 0 var(--space-lg);
   max-width: 640px;
@@ -1262,6 +1273,151 @@ address {
   gap: var(--space-md);
 }
 
+/* История магазина: вертикальная лента */
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 28px;
+  list-style: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.timeline__item {
+  position: relative;
+  padding-bottom: var(--space-lg);
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -25px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+}
+
+.timeline__year {
+  display: block;
+  color: var(--color-accent);
+  font-weight: 800;
+}
+
+.timeline__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* Команда */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.team-card {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.team-card__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-md);
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: var(--color-on-primary);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.team-card__name {
+  margin: 0 0 var(--space-xs);
+  font-size: 17px;
+}
+
+.team-card__role {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-accent);
+  font-size: 14px;
+}
+
+.team-card__text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* Частые вопросы */
+.faq {
+  display: grid;
+  gap: var(--space-sm);
+  max-width: 760px;
+}
+
+.faq__item {
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question::after {
+  content: "+";
+  flex-shrink: 0;
+  color: var(--color-accent);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.faq__item[open] .faq__question::after {
+  content: "−";
+}
+
+.faq__question:hover {
+  color: var(--color-accent);
+}
+
+.faq__answer {
+  margin: var(--space-sm) 0 0;
+  color: var(--color-muted);
+}
+
 /* ===============================
 Подвал
 =============================== */
@@ -1300,6 +1456,11 @@ address {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-md);
+}
+
+/* Соцссылки стоят в блоке «Контакты» под адресом */
+.site-footer__column .site-footer__social {
+  margin-top: var(--space-md);
 }
 
 .site-footer__social a {
@@ -1343,6 +1504,21 @@ address {
   overflow-wrap: break-word;
 }
 
+/* Строка контакта: иконка + значение */
+.site-footer__contact {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.site-footer__icon {
+  flex-shrink: 0;
+  width: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+}
+
 .site-footer__bottom {
   display: flex;
   flex-direction: column;
@@ -1356,56 +1532,198 @@ address {
 }
 
 /* ===============================
+Личный кабинет
+=============================== */
+.account-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.account-card {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.account-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.account-profile__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: var(--color-on-primary);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.account-profile__info {
+  min-width: 0;
+}
+
+.account-profile__name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.account-profile__mail {
+  margin: var(--space-xs) 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.account-facts {
+  margin: 0 0 var(--space-lg);
+}
+
+.account-facts__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+
+.account-facts dt {
+  color: var(--color-muted);
+}
+
+.account-facts dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.account-card__title {
+  margin: 0 0 var(--space-md);
+  font-size: 20px;
+}
+
+.account-orders {
+  display: grid;
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.account-order {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-soft);
+}
+
+.account-order__text {
+  min-width: 0;
+}
+
+.account-order__title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.account-order__meta {
+  margin: var(--space-xs) 0 0;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.account-status {
+  padding: 2px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.account-status--work {
+  color: #bfdbfe;
+  background: rgba(96, 165, 250, 0.16);
+}
+
+.account-status--done {
+  color: #a7f3d0;
+  background: rgba(52, 211, 153, 0.16);
+}
+
+.account-note {
+  margin: var(--space-md) 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* ===============================
 Служебные элементы
 =============================== */
-/* Кнопка «Наверх» в виде клавиши-кейкапа */
+/* Кнопка «Наверх»: обычная кнопка с подписью */
 .to-top {
   position: fixed;
   right: var(--space-lg);
   bottom: var(--space-lg);
   z-index: 20;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Кнопка чата: стоит над кнопкой «Наверх» и ведёт на страницу заявки */
+.chat-button {
+  position: fixed;
+  right: var(--space-lg);
+  /* 24px отступ снизу + высота кнопки «Наверх» + зазор */
+  bottom: calc(var(--space-lg) + 66px);
+  z-index: 21;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 48px;
   height: 48px;
-  padding: 0;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 12px;
-  background: linear-gradient(180deg, #232d3f, #121a28);
-  color: #ffffff;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
   text-decoration: none;
-  box-shadow:
-    0 4px 0 #05070c,
-    0 10px 20px rgba(2, 6, 23, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition: background-color 0.2s ease;
 }
 
-.to-top__icon {
-  font-size: 26px;
-  font-weight: 700;
+.chat-button:hover {
+  color: var(--color-on-primary);
+  background: var(--color-primary-soft);
+}
+
+.chat-button:active {
+  background: var(--color-primary-dark);
+}
+
+.chat-button__icon {
+  font-size: 22px;
   line-height: 1;
-  /* Утолщаем штрих глифа, чтобы стрелка читалась крупнее и чётче */
-  -webkit-text-stroke: 0.6px currentColor;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
-}
-
-.to-top:hover {
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow:
-    0 6px 0 #05070c,
-    0 14px 24px rgba(2, 6, 23, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
-}
-
-.to-top:active {
-  transform: translateY(3px);
-  box-shadow:
-    0 1px 0 #05070c,
-    0 6px 12px rgba(2, 6, 23, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .toast {
