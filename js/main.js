@@ -261,6 +261,8 @@ function renderProductCard(item) {
   image.width = 640;
   image.height = 480;
   image.loading = 'lazy';
+  image.srcset = `${item.image} 640w`;
+  image.sizes = '(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw';
   media.appendChild(image);
 
   // Тело карточки.
@@ -741,6 +743,10 @@ function renderProductPage() {
   if (image) {
     image.src = item.image;
     image.alt = `${categoryAltWords[item.category] || 'Товар'} ${item.title}`;
+    image.width = 640;
+    image.height = 480;
+    image.srcset = `${item.image} 640w`;
+    image.sizes = '(max-width: 767px) 100vw, 50vw';
   }
 
   // Основные данные.
