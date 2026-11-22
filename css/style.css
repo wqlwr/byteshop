@@ -20,6 +20,7 @@
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-danger: #f87171;
+  --color-on-danger: #3b0a0a;
 
   /* Градиенты */
   --gradient-primary: linear-gradient(135deg, #4f46e5, #7c3aed);
@@ -770,6 +771,7 @@ address {
 
 .product-card__badge--discount {
   background: var(--color-danger);
+  color: var(--color-on-danger);
 }
 
 .product-card__badge--hit {

@@ -37,9 +37,9 @@
       </nav>
 
       <div class="site-header__actions">
-        <button class="icon-button site-header__cart" type="button" aria-label="Корзина">
+        <button class="icon-button site-header__cart" type="button" aria-label="Корзина, товаров: 0">
           <span class="icon-button__icon" aria-hidden="true">🛒</span>
-          <span class="site-header__cart-count" data-cart-count>0</span>
+          <span class="site-header__cart-count" data-cart-count aria-hidden="true">0</span>
         </button>
         <a class="button button--ghost" href="account.html">Личный кабинет</a>
       </div>
@@ -130,18 +130,21 @@
         <article class="review-card">
           <p class="review-card__author">Александр</p>
           <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+          <span class="visually-hidden">Оценка: 5 из 5</span>
           <p class="review-card__text">Тихая, холодная, тянет все игры на ультра.</p>
         </article>
 
         <article class="review-card">
           <p class="review-card__author">Мария</p>
           <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+          <span class="visually-hidden">Оценка: 5 из 5</span>
           <p class="review-card__text">Отличная карта для монтажа и 3D.</p>
         </article>
 
         <article class="review-card">
           <p class="review-card__author">Илья</p>
           <p class="review-card__stars" aria-hidden="true">★★★★☆</p>
+          <span class="visually-hidden">Оценка: 4 из 5</span>
           <p class="review-card__text">Цена высоковата, но производительность радует.</p>
         </article>
       </div>
@@ -164,7 +167,7 @@
             </ul>
             <div class="product-card__footer">
               <div class="product-card__price">
-                <span class="product-card__current">129 990 ₽</span>
+                <span class="product-card__current"><span class="visually-hidden">Цена: </span>129 990 ₽</span>
               </div>
               <button class="product-card__cart" type="button" data-product="RTX 5080 16 GB" aria-label="Добавить RTX 5080 16 GB в корзину">+</button>
             </div>
@@ -184,7 +187,7 @@
             </ul>
             <div class="product-card__footer">
               <div class="product-card__price">
-                <span class="product-card__current">54 990 ₽</span>
+                <span class="product-card__current"><span class="visually-hidden">Цена: </span>54 990 ₽</span>
               </div>
               <button class="product-card__cart" type="button" data-product="Ryzen 7 9800X3D" aria-label="Добавить Ryzen 7 9800X3D в корзину">+</button>
             </div>
@@ -204,9 +207,9 @@
             </ul>
             <div class="product-card__footer">
               <div class="product-card__price">
-                <span class="product-card__current">11 490 ₽</span>
+                <span class="product-card__current"><span class="visually-hidden">Цена: </span>11 490 ₽</span>
               </div>
-              <button class="product-card__cart" type="button" data-product="Kingston Fury Beast DDR5 32 GB" aria-label="Добавить Kingston Fury Beast DDR5 32 GB в корзину">+</button>
+              <button class="product-card__cart" type="button" data-product="DDR5 32 GB 6000 МГц" aria-label="Добавить DDR5 32 GB 6000 МГц в корзину">+</button>
             </div>
           </div>
         </article>
@@ -281,7 +284,7 @@
     </div>
   </footer>
 
-  <a class="chat-button" href="order.html" aria-label="Чат с менеджером — перейти к оформлению заявки">
+  <a class="chat-button" href="order.html" aria-label="Оставить заявку">
     <span class="chat-button__icon" aria-hidden="true">💬</span>
   </a>
 
