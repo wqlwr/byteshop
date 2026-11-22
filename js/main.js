@@ -39,9 +39,14 @@ function calculateDiscount(price, discountPercent) {
 function calculateFinalPrice(price, discountPercent) {
   const numericPrice = Number(price);
   const discountValue = calculateDiscount(numericPrice, discountPercent);
+  const finalPrice = numericPrice - discountValue;
 
-  // Арифметический оператор: вычитание.
-  return numericPrice - discountValue;
+  // Цену без скидки оставляем как есть.
+  if (!(discountValue > 0)) return Math.round(finalPrice);
+
+  // Цену со скидкой округляем до 10 ₽,
+  // чтобы не появлялись суммы вида 89 991 ₽.
+  return Math.round(finalPrice / 10) * 10;
 }
 
 // Функция определения статуса товара.
