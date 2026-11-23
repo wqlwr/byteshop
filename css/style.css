@@ -1503,7 +1503,8 @@ address {
 .site-footer__contacts p {
   margin: 0 0 var(--space-sm);
   color: var(--color-muted);
-  overflow-wrap: break-word;
+  /* anywhere, чтобы длинный e-mail не растягивал колонку в мобильной сетке */
+  overflow-wrap: anywhere;
 }
 
 /* Строка контакта: иконка + значение */

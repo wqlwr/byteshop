@@ -1,5 +1,4 @@
 // Данные магазина ByteShop.
-// Здесь хранится массив товаров и объект товара для проверки функций из ПЗ №15.
 
 // Массив товаров для каталога.
 const products = [
@@ -28,7 +27,8 @@ const products = [
       ['Кэш L3', '96 МБ'],
       ['TDP', '120 Вт'],
     ],
-    image: 'img/7_9800.jpg'
+    image: 'img/7_9800.jpg',
+    alt: 'Процессор AMD Ryzen 7 9800X3D: металлическая крышка с гравировкой, вид сверху'
   },
   {
     id: 2,
@@ -54,7 +54,8 @@ const products = [
       ['Кэш L3', '33 МБ'],
       ['TDP', '125 Вт'],
     ],
-    image: 'img/i7.jpg'
+    image: 'img/i7.jpg',
+    alt: 'Процессор Intel Core i7-14700K вид сверху с маркировкой модели'
   },
   {
     id: 3,
@@ -80,7 +81,8 @@ const products = [
       ['Кэш L3', '32 МБ'],
       ['TDP', '65 Вт'],
     ],
-    image: 'img/5_7600.jpg'
+    image: 'img/5_7600.jpg',
+    alt: 'Процессор AMD Ryzen 5 7600 вид сверху с маркировкой модели'
   },
 
   // Видеокарты
@@ -107,7 +109,8 @@ const products = [
       ['Интерфейс', 'PCIe 5.0'],
       ['Рекомендуемый блок питания', '750 Вт'],
     ],
-    image: 'img/5070ti.jpg'
+    image: 'img/5070ti.jpg',
+    alt: 'Видеокарта NVIDIA GeForce RTX 5070 Ti с двумя вентиляторами, надписью GEFORCE RTX и золотыми контактами PCIe'
   },
   {
     id: 5,
@@ -132,7 +135,8 @@ const products = [
       ['Интерфейс', 'PCIe 5.0'],
       ['Рекомендуемый блок питания', '850 Вт'],
     ],
-    image: 'img/5080.jpg'
+    image: 'img/5080.jpg',
+    alt: 'Видеокарта NVIDIA GeForce RTX 5080 с массивным кожухом и вентиляторами, вид сверху'
   },
   {
     id: 6,
@@ -157,7 +161,8 @@ const products = [
       ['Интерфейс', 'PCIe 4.0'],
       ['Рекомендуемый блок питания', '700 Вт'],
     ],
-    image: 'img/7800.jpg'
+    image: 'img/7800.jpg',
+    alt: 'Видеокарта AMD Radeon RX 7800 XT в чёрном кожухе с вентиляторами, вид сверху'
   },
 
   // Материнские платы
@@ -184,7 +189,8 @@ const products = [
       ['Память', '4 × DDR5 до 128 ГБ'],
       ['Слоты M.2', '2'],
     ],
-    image: 'img/msi.jpg'
+    image: 'img/msi.jpg',
+    alt: 'Материнская плата MSI MAG B650 Tomahawk: текстолит, радиаторы VRM и слоты расширения'
   },
   {
     id: 8,
@@ -209,7 +215,8 @@ const products = [
       ['Память', '4 × DDR5 до 192 ГБ'],
       ['Слоты M.2', '4'],
     ],
-    image: 'img/asus.jpg'
+    image: 'img/asus.jpg',
+    alt: 'Материнская плата ASUS ROG Strix Z790-E с радиаторами и разъёмами питания'
   },
 
   // Оперативная память
@@ -236,7 +243,8 @@ const products = [
       ['Тайминги', 'CL30'],
       ['Профили', 'XMP 3.0 / EXPO'],
     ],
-    image: 'img/kingstom.jpg'
+    image: 'img/kingstom.jpg',
+    alt: 'Два модуля оперативной памяти Kingston Fury Beast DDR5 с чёрными радиаторами'
   },
   {
     id: 10,
@@ -261,7 +269,8 @@ const products = [
       ['Тайминги', 'CL32'],
       ['Профили', 'XMP 3.0 / EXPO'],
     ],
-    image: 'img/gskill.jpg'
+    image: 'img/gskill.jpg',
+    alt: 'Два модуля памяти G.Skill Trident Z5 DDR5 с высокими радиаторами'
   },
 
   // Накопители
@@ -288,7 +297,8 @@ const products = [
       ['Скорость чтения', '7450 МБ/с'],
       ['Форм-фактор', 'M.2 2280'],
     ],
-    image: 'img/samsungssd.jpg'
+    image: 'img/samsungssd.jpg',
+    alt: 'NVMe-накопитель Samsung 990 PRO в форм-факторе M.2 2280, вид сверху'
   },
   {
     id: 12,
@@ -313,7 +323,8 @@ const products = [
       ['Скорость чтения', '3500 МБ/с'],
       ['Форм-фактор', 'M.2 2280'],
     ],
-    image: 'img/kingstronssd.jpg'
+    image: 'img/kingstronssd.jpg',
+    alt: 'NVMe-накопитель Kingston NV2 в форм-факторе M.2 2280, вид сверху'
   },
 
   // Блоки питания
@@ -340,7 +351,8 @@ const products = [
       ['Кабели', 'Модульные'],
       ['Вентилятор', '135 мм'],
     ],
-    image: 'img/bequiet.jpg'
+    image: 'img/bequiet.jpg',
+    alt: 'Блок питания Be Quiet! Straight Power 12: чёрный корпус, вентилятор и модульные разъёмы'
   },
   {
     id: 14,
@@ -365,7 +377,8 @@ const products = [
       ['Кабели', 'Модульные'],
       ['Вентилятор', '140 мм'],
     ],
-    image: 'img/corsair.jpg'
+    image: 'img/corsair.jpg',
+    alt: 'Блок питания Corsair RM1000x в чёрном корпусе с вентилятором'
   }
 ];
 

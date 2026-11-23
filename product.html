@@ -153,66 +153,8 @@
     <section class="section" aria-labelledby="similar-title">
       <h2 class="section__title" id="similar-title">Похожие товары</h2>
 
-      <div class="products-grid">
-        <article class="product-card">
-          <a class="product-card__media" href="product.html?id=5">
-            <img class="product-card__image" src="img/5080.jpg" srcset="img/5080.jpg 640w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw" alt="RTX 5080 16 GB" width="640" height="480" loading="lazy">
-          </a>
-          <div class="product-card__body">
-            <p class="product-card__brand">NVIDIA · GeForce RTX</p>
-            <h3 class="product-card__title"><a href="product.html?id=5">RTX 5080 16 GB</a></h3>
-            <ul class="product-card__specs">
-              <li>16 GB GDDR7</li>
-              <li>PCIe 5.0</li>
-            </ul>
-            <div class="product-card__footer">
-              <div class="product-card__price">
-                <span class="product-card__current"><span class="visually-hidden">Цена: </span>129 990 ₽</span>
-              </div>
-              <button class="product-card__cart" type="button" data-product="RTX 5080 16 GB" aria-label="Добавить RTX 5080 16 GB в корзину">+</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <a class="product-card__media" href="product.html?id=1">
-            <img class="product-card__image" src="img/7_9800.jpg" srcset="img/7_9800.jpg 640w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw" alt="Ryzen 7 9800X3D" width="640" height="480" loading="lazy">
-          </a>
-          <div class="product-card__body">
-            <p class="product-card__brand">AMD · Ryzen 7</p>
-            <h3 class="product-card__title"><a href="product.html?id=1">Ryzen 7 9800X3D</a></h3>
-            <ul class="product-card__specs">
-              <li>8 ядер</li>
-              <li>AM5</li>
-            </ul>
-            <div class="product-card__footer">
-              <div class="product-card__price">
-                <span class="product-card__current"><span class="visually-hidden">Цена: </span>54 990 ₽</span>
-              </div>
-              <button class="product-card__cart" type="button" data-product="Ryzen 7 9800X3D" aria-label="Добавить Ryzen 7 9800X3D в корзину">+</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <a class="product-card__media" href="product.html?id=9">
-            <img class="product-card__image" src="img/kingstom.jpg" srcset="img/kingstom.jpg 640w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw" alt="DDR5 32 GB 6000 МГц" width="640" height="480" loading="lazy">
-          </a>
-          <div class="product-card__body">
-            <p class="product-card__brand">Kingston · Fury Beast</p>
-            <h3 class="product-card__title"><a href="product.html?id=9">DDR5 32 GB 6000 МГц</a></h3>
-            <ul class="product-card__specs">
-              <li>2 × 16 GB</li>
-              <li>CL30</li>
-            </ul>
-            <div class="product-card__footer">
-              <div class="product-card__price">
-                <span class="product-card__current"><span class="visually-hidden">Цена: </span>11 490 ₽</span>
-              </div>
-              <button class="product-card__cart" type="button" data-product="DDR5 32 GB 6000 МГц" aria-label="Добавить DDR5 32 GB 6000 МГц в корзину">+</button>
-            </div>
-          </div>
-        </article>
+      <div class="products-grid" id="similar-grid">
+        <!-- Карточки выводятся скриптом из js/data.js: id, цены, alt -->
       </div>
     </section>
   </main>

@@ -95,16 +95,6 @@ if (typeof product !== 'undefined') {
 // Вспомогательные функции доступности
 // ===============================
 
-// Названия категорий в единственном числе — для alt картинки.
-const categoryAltWords = {
-  cpu: 'Процессор',
-  gpu: 'Видеокарта',
-  mb: 'Материнская плата',
-  ram: 'Оперативная память',
-  ssd: 'Накопитель',
-  psu: 'Блок питания'
-};
-
 // Текст только для скринридера. Класс .visually-hidden уже есть в style.css.
 function createScreenReaderText(text) {
   const span = document.createElement('span');
@@ -262,7 +252,8 @@ function renderProductCard(item) {
   const image = document.createElement('img');
   image.className = 'product-card__image';
   image.src = item.image;
-  image.alt = `${categoryAltWords[item.category] || 'Товар'} ${item.title}`;
+  // alt хранится в data.js — там же, где остальные данные товара.
+  image.alt = item.alt || `${item.title} — фото товара`;
   image.width = 640;
   image.height = 480;
   image.loading = 'lazy';
@@ -747,7 +738,7 @@ function renderProductPage() {
 
   if (image) {
     image.src = item.image;
-    image.alt = `${categoryAltWords[item.category] || 'Товар'} ${item.title}`;
+    image.alt = item.alt || `${item.title} — фото товара`;
     image.width = 640;
     image.height = 480;
     image.srcset = `${item.image} 640w`;
@@ -889,6 +880,102 @@ function renderProductPage() {
 }
 
 // ===============================
+// Подборки товаров на страницах
+// ===============================
+
+// «Хиты продаж» на главной странице.
+const featuredProductIds = [4, 1, 9, 11];
+
+// «Похожие товары» на странице товара — одинаковые для всех товаров.
+const similarProductIds = [5, 1, 9];
+
+// Рисуем карточки по списку id в указанную сетку.
+function renderProductList(gridId, ids) {
+  const grid = document.getElementById(gridId);
+
+  if (!grid) return;
+
+  grid.innerHTML = '';
+
+  ids.forEach((id) => {
+    const item = products.find((productItem) => productItem.id === id);
+
+    if (item) grid.appendChild(renderProductCard(item));
+  });
+}
+
+// ===============================
+// Анимация цифр в блоке показателей
+// ===============================
+function animateStats() {
+  const counters = document.querySelectorAll('[data-count-to]');
+
+  if (counters.length === 0) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const duration = 900;
+
+  // Формат как в разметке: пробел между тысячами, затем единица измерения.
+  const formatValue = (value, suffix) => {
+    const formatted = Math.round(value).toLocaleString('ru-RU').replace(/\u00A0/g, ' ');
+
+    return `${formatted}${suffix}`;
+  };
+
+  counters.forEach((counter) => {
+    const target = Number(counter.dataset.countTo);
+    const suffix = counter.dataset.countSuffix || '';
+
+    if (!Number.isFinite(target)) return;
+
+    // При системной настройке «меньше движения» показываем итог сразу.
+    if (prefersReducedMotion) {
+      counter.textContent = formatValue(target, suffix);
+      return;
+    }
+
+    // До старта держим 0, чтобы итоговое число не мигало перед анимацией.
+    counter.textContent = formatValue(0, suffix);
+
+    const startCounting = () => {
+      const startTime = performance.now();
+
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        // Быстро на старте и плавнее к концу.
+        const eased = 1 - (1 - progress) ** 3;
+
+        counter.textContent = formatValue(target * eased, suffix);
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          counter.textContent = formatValue(target, suffix);
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    // Стартуем, когда цифры появились на экране.
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          currentObserver.disconnect();
+          startCounting();
+        });
+      }, { threshold: 0.4 });
+
+      observer.observe(counter);
+    } else {
+      startCounting();
+    }
+  });
+}
+
+// ===============================
 // Инициализация
 // ===============================
 document.addEventListener('DOMContentLoaded', () => {
@@ -898,8 +985,11 @@ document.addEventListener('DOMContentLoaded', () => {
   describeReviewStars();
   improveNavigation();
   initStatusRegions();
+  animateStats();
 
   renderProductPage();
+  renderProductList('featured-grid', featuredProductIds);
+  renderProductList('similar-grid', similarProductIds);
   setCategory(getCategoryFromHash() || 'all');
   attachTabs();
   attachToolbar();
